@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{83960F23-6C2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneApply.WebApi", "src\OneApply.WebApi\OneApply.WebApi.csproj", "{B6757E43-1E99-423E-B340-EDE13DDCF37C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneApplyDataAccessLayer", "src\OneApplyDataAccessLayer\OneApplyDataAccessLayer.csproj", "{AF156843-9D71-42CB-8A51-0F57C754B4A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{B6757E43-1E99-423E-B340-EDE13DDCF37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6757E43-1E99-423E-B340-EDE13DDCF37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6757E43-1E99-423E-B340-EDE13DDCF37C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF156843-9D71-42CB-8A51-0F57C754B4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF156843-9D71-42CB-8A51-0F57C754B4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF156843-9D71-42CB-8A51-0F57C754B4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF156843-9D71-42CB-8A51-0F57C754B4A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6757E43-1E99-423E-B340-EDE13DDCF37C} = {83960F23-6C23-41D8-9808-7C9798792D55}
+		{AF156843-9D71-42CB-8A51-0F57C754B4A3} = {83960F23-6C23-41D8-9808-7C9798792D55}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {383CBEE8-1EF8-4A9B-993B-BCC392B15705}
