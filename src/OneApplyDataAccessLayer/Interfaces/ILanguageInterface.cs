@@ -2,7 +2,6 @@
 
 namespace OneApplyDataAccessLayer.Interfaces;
 
-public interface IEducationInterface : IRepository<Education>
+public interface ILanguageInterface : IRepository<Language>
 {
-   
 }
