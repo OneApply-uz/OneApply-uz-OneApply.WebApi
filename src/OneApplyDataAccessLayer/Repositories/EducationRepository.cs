@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OneApplyDataAccessLayer.Repositories;
 
-namespace OneApplyDataAccessLayer.Repositories
+public class EducationRepository
 {
-    internal class EducationRepository
-    {
-    }
 }
