@@ -4,9 +4,9 @@ using OneApplyDataAccessLayer.Interfaces;
 
 namespace OneApplyDataAccessLayer.Repositories;
 
-public class EducationRepository : Repository<Education>, IEducationInterface
+public class CertificateRepository : Repository<Certificate>, ICertificateInterface
 {
-    public EducationRepository(ApplicationDbContext dbContext) : base(dbContext)
+    public CertificateRepository(ApplicationDbContext dbContext) : base(dbContext)
     {
     }
 }

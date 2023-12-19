@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OneApplyDataAccessLayer.Interfaces;
 
-namespace OneApplyDataAccessLayer.Interfaces
+public interface IUnitOfWork : IDisposable
 {
-    internal class IUnitOfWork
-    {
-    }
+    ICertificateInterface CertificateInterface { get; }
+    IEducationInterface EducationInterface { get; }
+    ILanguageInterface LanguageInterface { get; }
+    ILinkInterface LinkInterface { get; }
+    IProjectInterface ProjectInterface { get; }
+    ISkillInterface SkillInterface { get; }
+    IWorkExperienceInterface WorkExperienceInterface { get; }
+    Task SaveAsync();
 }

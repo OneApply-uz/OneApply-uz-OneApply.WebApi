@@ -2,7 +2,7 @@
 
 namespace OneApplyDataAccessLayer.Interfaces;
 
-public interface IEducationInterface : IRepository<Education>
+public interface ICertificateInterface : IRepository<Certificate>
 {
-   
+
 }
