@@ -21,5 +21,4 @@ public class Project:BaseEntity
 
     public User User { get; set; }
 
-
 }
