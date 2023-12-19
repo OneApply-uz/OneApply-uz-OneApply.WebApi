@@ -1,5 +1,7 @@
-﻿namespace OneApplyDataAccessLayer.Interfaces;
+﻿using OneApplyDataAccessLayer.Entities.Resumes;
 
-public interface ILinkInterface
+namespace OneApplyDataAccessLayer.Interfaces;
+
+public interface ILinkInterface : IRepository<Link>
 {
 }

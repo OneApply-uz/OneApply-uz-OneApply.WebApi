@@ -1,5 +1,7 @@
-﻿namespace OneApplyDataAccessLayer.Interfaces;
+﻿using OneApplyDataAccessLayer.Entities.Resumes;
 
-public interface ISkillInterface
+namespace OneApplyDataAccessLayer.Interfaces;
+
+public interface ISkillInterface : IRepository<Skill>
 {
 }

@@ -1,6 +1,6 @@
 ﻿namespace OneApplyDataAccessLayer.Interfaces;
 
-public  interface IRepository<TEntity> where TEntity : class
+public interface IRepository<TEntity> where TEntity : class
 { 
     Task<IQueryable<TEntity>> GetAllAsync();
     Task<TEntity> GetByIdAsync(int id);

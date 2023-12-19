@@ -1,5 +1,7 @@
-﻿namespace OneApplyDataAccessLayer.Interfaces;
+﻿using OneApplyDataAccessLayer.Entities.Resumes;
 
-public interface IProjectInterface
+namespace OneApplyDataAccessLayer.Interfaces;
+
+public interface IProjectInterface : IRepository<Project>
 {
 }

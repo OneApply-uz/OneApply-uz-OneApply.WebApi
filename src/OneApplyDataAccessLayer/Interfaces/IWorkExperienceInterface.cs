@@ -1,5 +1,7 @@
-﻿namespace OneApplyDataAccessLayer.Interfaces;
+﻿using OneApplyDataAccessLayer.Entities.Resumes;
 
-public interface IWorkExperienceInterface
+namespace OneApplyDataAccessLayer.Interfaces;
+
+public interface IWorkExperienceInterface : IRepository<WorkExperience>
 {
 }
