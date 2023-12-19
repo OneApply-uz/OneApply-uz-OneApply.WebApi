@@ -16,9 +16,4 @@ public class AspNetUserRole : BaseEntity
 
     public User User { get; set; } = new User();
     public AspNetRole Role { get; set; } = new AspNetRole();
-
-
-
-
-
 }
