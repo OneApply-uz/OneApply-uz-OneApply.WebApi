@@ -10,7 +10,7 @@ public class Skill:BaseEntity
     [Required, MinLength(1), MaxLength(100)]
     public string Name { get; set; } = string.Empty;
     [ForeignKey(nameof(User)), Column("UserId")]
-    public int UserId { get; set; }
+    public string UserId { get; set; }
     public User User { get; set; }
 
 }

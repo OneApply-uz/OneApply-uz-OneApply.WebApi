@@ -14,6 +14,6 @@ namespace OneApplyDataAccessLayer.Entities.Resumes
         public User User { get; set; }
 
         [ForeignKey(nameof(User)), Column("UserId")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }
