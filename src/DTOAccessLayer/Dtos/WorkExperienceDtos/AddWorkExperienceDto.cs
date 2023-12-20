@@ -25,5 +25,7 @@ public class AddWorkExperienceDto
     [StringLength(2000, ErrorMessage = "Description length must be between 3 and 2000 characters", MinimumLength = 3)]
     public string Description { get; set; } = string.Empty;
 
+    [Required(ErrorMessage = "UserId is required")]
+
     public int UserId { get; set; }
 }

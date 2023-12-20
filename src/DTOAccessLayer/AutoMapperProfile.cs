@@ -66,6 +66,7 @@ public class AutoMapperProfile:Profile
         CreateMap<User, UserDto>().ReverseMap();
         CreateMap<AddUserDto, User>();
         CreateMap<UpdateUserDto, User>();
+        CreateMap<User, UserDetialDro>().ReverseMap();
 
         //Add Job 10
         CreateMap<Job, JobDto>().ReverseMap();
