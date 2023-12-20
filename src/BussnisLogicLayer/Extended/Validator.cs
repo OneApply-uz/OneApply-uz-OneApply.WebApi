@@ -23,7 +23,7 @@ public static  class Validator
      => certificate != null &&
         !string.IsNullOrEmpty(certificate.Name) &&
         !string.IsNullOrEmpty(certificate.Url
-         ) && certificate.UserId != 0;
+         ) && !string.IsNullOrEmpty(certificate.UserId);
 
     public static bool IsExistCertificate(this Certificate certificate, IEnumerable<Certificate> certificates)
         => certificates.Any(c => c.Name == certificate.Name

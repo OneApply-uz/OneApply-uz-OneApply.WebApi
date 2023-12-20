@@ -11,7 +11,7 @@ public class Apply:BaseEntity
     public int JobId { get; set; }
 
     [ForeignKey(nameof(User)), Column("UserId")]
-    public int UserId { get; set; }
+    public string UserId { get; set; }
 
 
     public Job Job { get; set; } =new Job();

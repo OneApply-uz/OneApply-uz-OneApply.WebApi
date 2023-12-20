@@ -30,11 +30,7 @@ public class CertificateService(IUnitOfWork unitOfWork, IMapper mapper) : ICerti
 
         if (certificate.IsExistCertificate(certificates))
             throw new CustomException($"{certificate.Name} is already exist");
-        var user  = await _unitOfWork.UserInterface.GetByIdAsync(certificate.UserId);
-        if (user is  null)
-        {
-            throw new CustomException("UserId mavjud emas ");
-        }
+      
         await _unitOfWork.CertificateInterface.AddAsync(certificate);
         await _unitOfWork.SaveAsync();
     }

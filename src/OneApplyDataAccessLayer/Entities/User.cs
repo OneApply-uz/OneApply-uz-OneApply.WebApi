@@ -1,11 +1,12 @@
-﻿using OneApplyDataAccessLayer.Entities.Resumes;
+﻿using Microsoft.AspNetCore.Identity;
+using OneApplyDataAccessLayer.Entities.Resumes;
 using OneApplyDataAccessLayer.Entities.Vacancies;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OneApplyDataAccessLayer.Entities
 {
-    public partial class User : BaseEntity
+    public partial class User : IdentityUser
     {
         [Required, MinLength(3), MaxLength(100)]
         public string FullName { get; set; } = string.Empty;

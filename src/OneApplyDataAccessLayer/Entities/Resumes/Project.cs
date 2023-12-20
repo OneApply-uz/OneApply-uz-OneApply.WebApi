@@ -17,7 +17,7 @@ public class Project:BaseEntity
     public string Url = string.Empty;
 
     [ForeignKey(nameof(User)), Column("UserId")]
-    public int UserId { get; set; }
+    public string UserId { get; set; }
 
     public User User { get; set; }
 

@@ -53,6 +53,13 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return entity ?? throw new Exception($"GetByIdAsync entity not found for ID: {id}");
     }
 
+    public async Task<TEntity> GetByIdAsync(string id)
+    {
+        var entity = await _dbSet.FirstOrDefaultAsync(c => c.Id.Equals(id));
+
+        return entity ?? throw new Exception($"GetByIdAsync entity not found for ID: {id}");
+    }
+
     public async Task UpdateAsync(TEntity entity)
     {
         _dbSet.Update(entity);

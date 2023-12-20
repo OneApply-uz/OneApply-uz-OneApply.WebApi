@@ -21,7 +21,7 @@ public class Education : BaseEntity
     public bool Present { get; set; }
 
     [ForeignKey(nameof(User)), Column("UserId")]
-    public int UserId { get; set; }
+    public string UserId { get; set; }
 
     // Add navigation property to User
     public User User { get; set; }
