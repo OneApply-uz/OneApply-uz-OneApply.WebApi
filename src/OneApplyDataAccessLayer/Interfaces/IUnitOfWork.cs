@@ -9,5 +9,6 @@ public interface IUnitOfWork : IDisposable
     IProjectInterface ProjectInterface { get; }
     ISkillInterface SkillInterface { get; }
     IWorkExperienceInterface WorkExperienceInterface { get; }
+    IUserInterface UserInterface { get; }
     Task SaveAsync();
 }

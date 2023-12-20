@@ -1,21 +1,52 @@
+using AutoMapper;
+using BussnisLogicLayer.Interfaces;
+using BussnisLogicLayer.Services;
+using DTOAccessLayer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using OneApplyDataAccessLayer.Data;
-using System;
+using OneApplyDataAccessLayer.Entities;
+using OneApplyDataAccessLayer.Interfaces;
+using OneApplyDataAccessLayer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// add Dbcontext
+// Add DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalSqlServer")));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options
-             => options.UseSqlServer(builder.Configuration.GetConnectionString("LocalSqlServer")));
+// Add repositories and services
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient<ICertificateInterface, CertificateRepository>();
+builder.Services.AddTransient<IEducationInterface, EducationRepository>();
+builder.Services.AddTransient<ILanguageInterface, LanguageRepository>();
+builder.Services.AddTransient<IProjectInterface, ProjectRepository>();
+builder.Services.AddTransient<ISkillInterface, SkillRepository>();
+builder.Services.AddTransient<ILinkInterface, LinkRepository>();
+builder.Services.AddTransient<IUserInterface,  UserRepository>();
+builder.Services.AddTransient<IUserService,  UserService>();
+builder.Services.AddTransient<ICertificateService, CertificateService>();
+builder.Services.AddTransient<IWorkExperienceInterface, WorkExparinceRepository>(); // Corrected spelling
 
+// Add AutoMapper
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new AutoMapperProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 
@@ -33,3 +64,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+
