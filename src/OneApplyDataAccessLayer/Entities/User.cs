@@ -1,5 +1,4 @@
 ﻿using OneApplyDataAccessLayer.Entities.Resumes;
-using OneApplyDataAccessLayer.Entities.Roles;
 using OneApplyDataAccessLayer.Entities.Vacancies;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

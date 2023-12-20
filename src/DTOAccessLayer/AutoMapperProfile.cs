@@ -5,8 +5,7 @@ using DTOAccessLayer.Dtos.EducationDtos;
 using DTOAccessLayer.Dtos.LanguageDtos;
 using DTOAccessLayer.Dtos.LinkDtos;
 using DTOAccessLayer.Dtos.ProjectDtos;
-using DTOAccessLayer.Dtos.RoleDtos.AspNetRoleDtos;
-using DTOAccessLayer.Dtos.RoleDtos.AspNetUserRoleDtos;
+
 using DTOAccessLayer.Dtos.SkillDtos;
 using DTOAccessLayer.Dtos.UserDtos;
 using DTOAccessLayer.Dtos.VacanceDtos.ApplyDtos;
@@ -14,7 +13,6 @@ using DTOAccessLayer.Dtos.VacanceDtos.JobDtos;
 using DTOAccessLayer.Dtos.WorkExperienceDtos;
 using OneApplyDataAccessLayer.Entities;
 using OneApplyDataAccessLayer.Entities.Resumes;
-using OneApplyDataAccessLayer.Entities.Roles;
 using OneApplyDataAccessLayer.Entities.Vacancies;
 
 namespace DTOAccessLayer;
@@ -47,36 +45,27 @@ public class AutoMapperProfile:Profile
         CreateMap<AddProjectDto, Project>();
         CreateMap<UpdateProjectDto,  Project>();
 
-        //Add AspNetRole 6
-        CreateMap<AspNetRole, AspNetRoleDto>().ReverseMap();
-        CreateMap<AddAspNetRoleDto, AspNetRole>();
-        CreateMap<UpdateAspNetRoleDto, AspNetRole>();
 
-        //Add AspNetUserRole 7 
-        CreateMap<AspNetUserRole, AspNetUserRoleDto>().ReverseMap();
-        CreateMap<AddAspNetUserRoleDto, AspNetUserRole>();
-        CreateMap<UpdateAspNetUserRoleDto, AspNetUserRole>();
-
-        //Add Skill 8
+        //Add Skill 6
         CreateMap<Skill, SkillDto>().ReverseMap();
         CreateMap<AddSkillDto, Skill>();
         CreateMap<UpdateSkillDto, Skill>();
 
-        // Add User 9
+        // Add User 7
         CreateMap<User, UserDto>().ReverseMap();
         CreateMap<AddUserDto, User>();
         CreateMap<UpdateUserDto, User>();
         CreateMap<User, UserDetialDro>().ReverseMap();
 
-        //Add Job 10
+        //Add Job 8
         CreateMap<Job, JobDto>().ReverseMap();
         CreateMap<AddJobDto, Job>();
         CreateMap<UpdateJobDto, Job>();
-        // Add Apply 11
+        // Add Apply 9
         CreateMap<Apply, ApplyDto>().ReverseMap();
         CreateMap<AddApplyDto, Apply>();
         CreateMap<UpdateApplyDto, Apply>();
-        // Add WorkExperience 12
+        // Add WorkExperience 10
         CreateMap<WorkExperience , WorkExperienceDto>().ReverseMap();
         CreateMap<AddWorkExperienceDto, WorkExperience>();
         CreateMap<UpdateWorkExperienceDto , WorkExperience>();

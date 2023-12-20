@@ -5,7 +5,6 @@ using DTOAccessLayer.Dtos.EducationDtos;
 using DTOAccessLayer.Dtos.LanguageDtos;
 using DTOAccessLayer.Dtos.LinkDtos;
 using DTOAccessLayer.Dtos.ProjectDtos;
-using DTOAccessLayer.Dtos.RoleDtos.AspNetRoleDtos;
 using DTOAccessLayer.Dtos.SkillDtos;
 using DTOAccessLayer.Dtos.WorkExperienceDtos;
 using System.ComponentModel.DataAnnotations;
