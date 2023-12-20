@@ -4,7 +4,6 @@ using AutoMapper;
 using BussnisLogicLayer.Extended;
 using BussnisLogicLayer.Interfaces;
 using DTOAccessLayer.Dtos.CertificateDtos;
-using OneApplyDataAccessLayer.Entities;
 using OneApplyDataAccessLayer.Entities.Resumes;
 using OneApplyDataAccessLayer.Interfaces;
 
@@ -30,7 +29,7 @@ public class CertificateService(IUnitOfWork unitOfWork, IMapper mapper) : ICerti
 
         if (certificate.IsExistCertificate(certificates))
             throw new CustomException($"{certificate.Name} is already exist");
-      
+    
         await _unitOfWork.CertificateInterface.AddAsync(certificate);
         await _unitOfWork.SaveAsync();
     }
