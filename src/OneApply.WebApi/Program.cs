@@ -1,15 +1,11 @@
+
 using AutoMapper;
 using BussnisLogicLayer.Interfaces;
 using BussnisLogicLayer.Services;
 using DTOAccessLayer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+
 using OneApplyDataAccessLayer.Data;
 using OneApplyDataAccessLayer.Entities;
 using OneApplyDataAccessLayer.Interfaces;
@@ -24,9 +20,13 @@ builder.Services.AddSwaggerGen();
 
 // Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalSqlServer")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("OneApplyDbWithIdentity")));
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//        options.UseNpgsql(builder.Configuration.GetConnectionString("OneApplyDbWithIdentity")));
+
 
 // Add Identity
+
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
@@ -39,6 +39,7 @@ builder.Services.AddTransient<ILanguageInterface, LanguageRepository>();
 builder.Services.AddTransient<IProjectInterface, ProjectRepository>();
 builder.Services.AddTransient<ISkillInterface, SkillRepository>();
 builder.Services.AddTransient<ILinkInterface, LinkRepository>();
+
 builder.Services.AddTransient<ICertificateService, CertificateService>();
 builder.Services.AddTransient<IWorkExperienceInterface, WorkExparinceRepository>();
 

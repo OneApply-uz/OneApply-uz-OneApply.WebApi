@@ -11,8 +11,14 @@ public class ApplicationDbContext : IdentityDbContext<User>
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
         : base(options)
     {
-
+        Database.EnsureCreated();
     }
+
+    //const string connectionstring = "Data Source = (LocalDB)\\MSSQLLocalDB; Database=OneApplyDbWithIdentity;";
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseSqlServer(connectionstring);
+    //}
 
     public DbSet<Certificate> GetCertificates { get; set; }
     public DbSet<Education> Educations { get; set; }

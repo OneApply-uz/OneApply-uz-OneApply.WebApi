@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+
 using BussnisLogicLayer.Interfaces;
 using DTOAccessLayer.Dtos.CertificateDtos;
 using BussnisLogicLayer.Extended;
