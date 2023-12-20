@@ -1,5 +1,4 @@
 ﻿using OneApplyDataAccessLayer.Entities.Resumes;
-using OneApplyDataAccessLayer.Entities.Roles;
 using OneApplyDataAccessLayer.Entities.Vacancies;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,7 +22,6 @@ namespace OneApplyDataAccessLayer.Entities
         [MinLength(10), MaxLength(1000)]
         public string About { get; set; } = string.Empty;
 
-        // Add navigation properties to Certificate and Education
         public ICollection<Certificate> Certificates { get; set; } = new List<Certificate>();
         public ICollection<Education> Educations { get; set; } = new List<Education>();
         public ICollection<Language> Languages { get; set; } = new List<Language>();
@@ -31,9 +29,6 @@ namespace OneApplyDataAccessLayer.Entities
         public ICollection<Project> Projects { get; set; } = new List<Project>();
         public ICollection<Skill> Skills { get; set; } = new List<Skill>();
         public ICollection<WorkExperience> WorkExperiences { get; set; } = new List<WorkExperience>();
-
-        public ICollection<AspNetRole> AspNetRoles { get; set; } = new List<AspNetRole>();
-        public ICollection<AspNetUserRole> AspNetUserRoles { get; set; } = new List<AspNetUserRole>();
 
         public ICollection<Apply> Applies { get; set; } = new List<Apply>();
         public ICollection<Job> Jobs { get; set; } = new List<Job>();

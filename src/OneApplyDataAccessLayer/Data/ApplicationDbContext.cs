@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OneApplyDataAccessLayer.Entities.Resumes;
-using OneApplyDataAccessLayer.Entities.Roles;
 using OneApplyDataAccessLayer.Entities.Vacancies;
 
 namespace OneApplyDataAccessLayer.Data
@@ -75,18 +74,7 @@ namespace OneApplyDataAccessLayer.Data
                 .WithMany(u => u.Jobs)
                 .HasForeignKey(j => j.UserId);
 
-            modelBuilder.Entity<AspNetUserRole>()
-                .HasKey(ur => new { ur.UserId, ur.RoleId });
 
-            modelBuilder.Entity<AspNetUserRole>()
-                .HasOne(ur => ur.User)
-                .WithMany(u => u.AspNetUserRoles)
-                .HasForeignKey(ur => ur.UserId);
-
-            modelBuilder.Entity<AspNetUserRole>()
-                .HasOne(ur => ur.Role)
-                .WithMany(r => r.AspNetUserRoles)
-                .HasForeignKey(ur => ur.RoleId);
 
             base.OnModelCreating(modelBuilder);
         }
