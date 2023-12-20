@@ -31,9 +31,8 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return entity;
     }
 
-    public async Task<TEntity> DeleteAsync(int id)
+    public async Task<TEntity> DeleteAsync(TEntity entity)
     {
-        var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
         _dbSet.Remove(entity ?? throw new Exception($"Deleteda entity null {entity}"));
         await _dbContext.SaveChangesAsync();
 
