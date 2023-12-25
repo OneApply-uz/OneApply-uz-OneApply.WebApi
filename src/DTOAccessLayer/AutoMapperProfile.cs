@@ -66,7 +66,7 @@ public class AutoMapperProfile:Profile
         CreateMap<AddApplyDto, Apply>();
         CreateMap<UpdateApplyDto, Apply>();
         // Add WorkExperience 10
-        CreateMap<WorkExperience , WorkExperienceDto>().ReverseMap();
+        CreateMap<WorkExperienceDto, WorkExperience >().ReverseMap();
         CreateMap<AddWorkExperienceDto, WorkExperience>();
         CreateMap<UpdateWorkExperienceDto , WorkExperience>();
 

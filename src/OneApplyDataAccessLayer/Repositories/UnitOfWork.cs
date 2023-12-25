@@ -32,7 +32,6 @@ public class UnitOfWork(ApplicationDbContext dbContext,
 
     public IWorkExperienceInterface WorkExperienceInterface { get; } = workExperienceInterface;
 
-
     public IUserInterface UserInterface { get; } = userInterface;
 
     public void Dispose()

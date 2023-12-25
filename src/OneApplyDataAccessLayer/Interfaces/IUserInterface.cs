@@ -1,9 +1,9 @@
 ﻿
 using OneApplyDataAccessLayer.Entities;
 
-namespace OneApplyDataAccessLayer.Interfaces
+namespace OneApplyDataAccessLayer.Interfaces;
+
+public interface IUserInterface:IRepository<User>
 {
-    public interface IUserInterface:IRepository<User>
-    {
-    }
+   
 }

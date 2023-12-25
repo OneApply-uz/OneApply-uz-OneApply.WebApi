@@ -30,6 +30,7 @@ public class UserService(IUnitOfWork unitOfWork,
         {
             throw new CustomException($"{user.FullName} is already exist ");
         }
+
         await _unitOfWork.UserInterface.AddAsync(user);
         await _unitOfWork.SaveAsync();
 

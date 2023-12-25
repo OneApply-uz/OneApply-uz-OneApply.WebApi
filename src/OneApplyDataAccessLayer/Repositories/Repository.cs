@@ -46,16 +46,19 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
 
         return Task.FromResult(list);
     }
-    public async Task<TEntity> GetByIdAsync(int id)
+    public Task<TEntity> GetByIdAsync(int id)
     {
-        var entity = await _dbSet.FirstOrDefaultAsync(c => c.Id == id);
-
-        return entity ?? throw new Exception($"GetByIdAsync entity not found for ID: {id}");
+        var entity = _dbSet.FirstOrDefault(c => c.Id == id);
+        if (entity == null)
+        {
+            throw new Exception($"GetByIdAsync entity not found for ID: {id}");
+        }
+        return Task.FromResult(entity);
     }
 
-    public async Task UpdateAsync(TEntity entity)
+    public Task UpdateAsync(TEntity entity)
     {
         _dbSet.Update(entity);
-        await _dbContext.SaveChangesAsync();
+        return Task.CompletedTask;
     }
 }

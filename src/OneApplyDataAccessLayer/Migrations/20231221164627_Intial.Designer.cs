@@ -12,8 +12,8 @@ using OneApplyDataAccessLayer.Data;
 namespace OneApplyDataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231220035521_Dto")]
-    partial class Dto
+    [Migration("20231221164627_Intial")]
+    partial class Intial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,41 +1,39 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
+﻿using BussnisLogicLayer.Extended;
 using BussnisLogicLayer.Interfaces;
-using DTOAccessLayer.Dtos.CertificateDtos;
-using BussnisLogicLayer.Extended;
+using BussnisLogicLayer.Services;
+using DTOAccessLayer.Dtos.EducationDtos;
+using Microsoft.AspNetCore.Mvc;
 using OneApplyDataAccessLayer.Data;
+
 
 namespace OneApply.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CertificateController(ICertificateService certificateService, ApplicationDbContext dbContext) : ControllerBase
+    public class EducationController(IEducationService educationService, ApplicationDbContext dbContext) : ControllerBase
     {
-        private readonly ICertificateService _certificateService = certificateService;
+        private readonly IEducationService _educationService = educationService;
         private readonly ApplicationDbContext _dbContext = dbContext;
 
-        [HttpGet("getAllCertificates")]
-        public async Task<IActionResult> GetAllCertificates()
+        [HttpGet("GetAllEducation")]
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var certificates = await _certificateService.GetAllAsync();
-                return Ok(certificates);
+                var educaions = await _educationService.GetAllEducationAsync();
+                return Ok(educaions);
             }
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
-        [HttpGet("getCertificateById/{id}")]
-        public async Task<IActionResult> GetCertificateById(int id)
+        [HttpGet("GetById/{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
-                var certificate = await _certificateService.GetByIdAsync(id);
+                var certificate = await _educationService.GetByEducationId(id);
                 return Ok(certificate);
             }
             catch (Exception ex)
@@ -43,19 +41,17 @@ namespace OneApply.WebApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
-        [HttpPost("addCertificate")]
-        public async Task<IActionResult> AddCertificate(AddCertificateDto dto)
+        [HttpPost("AddEducation")]
+        public async Task<IActionResult> Add(AddEducationDto addEducation)
         {
             try
             {
-                await _certificateService.AddAsync(dto);
-                await _dbContext.SaveChangesAsync();
-                return Ok("Certificate added successfully");
+                await _educationService.AddEducationAsync(addEducation);
+                return Ok("Education added successfully");
             }
             catch (ArgumentNullException)
             {
-                return NotFound("Certificate is null");
+                return NotFound("Education is null");
             }
             catch (CustomException ex)
             {
@@ -66,19 +62,17 @@ namespace OneApply.WebApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
-        [HttpPut("updateCertificate")]
-        public async Task<IActionResult> UpdateCertificate(UpdateCertificateDto dto)
+        [HttpPut("UpdateEducationAsync")]
+        public async Task<IActionResult> UpdateEducationAsync(UpdateEducationDto updateEducation)
         {
             try
             {
-                await _certificateService.UpdateAsync(dto);
-                await _dbContext.SaveChangesAsync();
-                return Ok("Certificate updated successfully");
+                await _educationService.UpdateEducation(updateEducation);
+                return Ok("Education updated successfully");
             }
             catch (ArgumentNullException)
             {
-                return NotFound("Certificate is null");
+                return NotFound("Education is null");
             }
             catch (CustomException ex)
             {
@@ -89,15 +83,14 @@ namespace OneApply.WebApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
-        [HttpDelete("deleteCertificate/{id}")]
-        public async Task<IActionResult> DeleteCertificate(int id)
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             try
             {
-                await _certificateService.DeleteAsync(id);
+                await _educationService.DeleteEducationAsync(id);
                 await _dbContext.SaveChangesAsync();
-                return NoContent(); // Indicates successful deletion with no specific content to return
+                return Ok("Education deleted successfully");
             }
             catch (ArgumentNullException ex)
             {
@@ -109,4 +102,5 @@ namespace OneApply.WebApi.Controllers
             }
         }
     }
+
 }

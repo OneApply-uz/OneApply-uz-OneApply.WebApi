@@ -1,23 +1,22 @@
-﻿
-
-using OneApplyDataAccessLayer.Entities;
+﻿using OneApplyDataAccessLayer.Entities;
 using OneApplyDataAccessLayer.Entities.Resumes;
 
 namespace BussnisLogicLayer.Extended;
 
 public static  class Validator
 {
-    public static bool IsValid(this User user)
-        => user != null &&
-           !string.IsNullOrEmpty(user.FullName) &&
-           !string.IsNullOrEmpty(user.Title) &&
-           !string.IsNullOrEmpty(user.About);
+    public static bool IsValid(this Education education)
+             => education != null
+                && !string.IsNullOrEmpty(education.Name)
+                && !string.IsNullOrEmpty(education.Specialty);
 
     public static bool IsExist(this User user, IEnumerable<User> users)
         => users.Any(u => u.FullName == user.FullName
                      && u.Id!=user.Id);
 
-
+    public static bool IsValid(this User user)
+         => user != null
+         && !string.IsNullOrEmpty(user.FullName);
 
     public static bool IsValidCertificate(this Certificate certificate)
      => certificate != null &&
@@ -28,4 +27,11 @@ public static  class Validator
     public static bool IsExistCertificate(this Certificate certificate, IEnumerable<Certificate> certificates)
         => certificates.Any(c => c.Name == certificate.Name
                              && c.Id != certificate.Id);
+
+    public static bool IsValidWorkExperience(this WorkExperience workExperience)
+            => workExperience != null
+               && !string.IsNullOrEmpty(workExperience.CompanyName);
+
+    public static bool IsExistWorkExperience(this WorkExperience  workExperience, IEnumerable<WorkExperience> workExperiences)
+        => workExperiences.Any(w => w.CompanyName == workExperience.CompanyName);
 }
