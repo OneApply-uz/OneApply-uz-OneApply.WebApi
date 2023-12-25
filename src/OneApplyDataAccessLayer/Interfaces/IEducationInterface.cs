@@ -1,5 +1,8 @@
-﻿namespace OneApplyDataAccessLayer.Interfaces;
+﻿using OneApplyDataAccessLayer.Entities.Resumes;
 
-public interface IEducationInterface
+namespace OneApplyDataAccessLayer.Interfaces;
+
+public interface IEducationInterface : IRepository<Education>
 {
+   
 }

@@ -15,6 +15,6 @@ public class ProjectDto:BaseDto
 
     [StringLength(1000, ErrorMessage = "Url length must be between 3 and 1000 characters", MinimumLength = 3)]
     public string Url { get; set; } = string.Empty;
-
+    [Required(ErrorMessage = "UserId is required")]
     public int UserId { get; set; }
 }

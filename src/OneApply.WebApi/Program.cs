@@ -1,21 +1,47 @@
+using AutoMapper;
+using BussnisLogicLayer.Interfaces;
+using BussnisLogicLayer.Services;
+using DTOAccessLayer;
 using Microsoft.EntityFrameworkCore;
 using OneApplyDataAccessLayer.Data;
-using System;
+using OneApplyDataAccessLayer.Interfaces;
+using OneApplyDataAccessLayer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// add Dbcontext
+// Add DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalSqlServer")));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options
-             => options.UseSqlServer(builder.Configuration.GetConnectionString("LocalSqlServer")));
+// Add repositories and services
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient<ICertificateInterface, CertificateRepository>();
+builder.Services.AddTransient<IEducationInterface, EducationRepository>();
+builder.Services.AddTransient<IEducationService, EducationService>();
+builder.Services.AddTransient<ILanguageInterface, LanguageRepository>();
+builder.Services.AddTransient<IProjectInterface, ProjectRepository>();
+builder.Services.AddTransient<ISkillInterface, SkillRepository>();
+builder.Services.AddTransient<ILinkInterface, LinkRepository>();
+builder.Services.AddTransient<IUserInterface,  UserRepository>();
+builder.Services.AddTransient<ICertificateService, CertificateService>();
+builder.Services.AddTransient<IWorkExperienceInterface, WorkExparinceRepository>(); // Corrected spelling
+builder.Services.AddTransient<IWorkExperienceService, WorkExperienceService>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<ILinkService, LinkService>();
 
+// Add AutoMapper
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new AutoMapperProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 

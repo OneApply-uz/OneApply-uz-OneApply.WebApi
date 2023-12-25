@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OneApplyDataAccessLayer.Data;
+using OneApplyDataAccessLayer.Entities.Resumes;
+using OneApplyDataAccessLayer.Interfaces;
 
-namespace OneApplyDataAccessLayer.Repositories
+namespace OneApplyDataAccessLayer.Repositories;
+
+public class EducationRepository : Repository<Education>, IEducationInterface
 {
-    internal class EducationRepository
+    public EducationRepository(ApplicationDbContext dbContext) : base(dbContext)
     {
     }
 }

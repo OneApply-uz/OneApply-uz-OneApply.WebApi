@@ -12,8 +12,8 @@ using OneApplyDataAccessLayer.Data;
 namespace OneApplyDataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231219041522_Initial")]
-    partial class Initial
+    [Migration("20231221164627_Intial")]
+    partial class Intial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -167,11 +167,6 @@ namespace OneApplyDataAccessLayer.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int")
                         .HasColumnName("UserId");
@@ -247,47 +242,6 @@ namespace OneApplyDataAccessLayer.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("WorkExperience");
-                });
-
-            modelBuilder.Entity("OneApplyDataAccessLayer.Entities.Roles.AspNetRole", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetRole");
-                });
-
-            modelBuilder.Entity("OneApplyDataAccessLayer.Entities.Roles.AspNetUserRole", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRole");
                 });
 
             modelBuilder.Entity("OneApplyDataAccessLayer.Entities.User", b =>
@@ -474,32 +428,6 @@ namespace OneApplyDataAccessLayer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OneApplyDataAccessLayer.Entities.Roles.AspNetRole", b =>
-                {
-                    b.HasOne("OneApplyDataAccessLayer.Entities.User", null)
-                        .WithMany("AspNetRoles")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("OneApplyDataAccessLayer.Entities.Roles.AspNetUserRole", b =>
-                {
-                    b.HasOne("OneApplyDataAccessLayer.Entities.Roles.AspNetRole", "Role")
-                        .WithMany("AspNetUserRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("OneApplyDataAccessLayer.Entities.User", "User")
-                        .WithMany("AspNetUserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("OneApplyDataAccessLayer.Entities.Vacancies.Apply", b =>
                 {
                     b.HasOne("OneApplyDataAccessLayer.Entities.Vacancies.Job", "Job")
@@ -530,18 +458,9 @@ namespace OneApplyDataAccessLayer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OneApplyDataAccessLayer.Entities.Roles.AspNetRole", b =>
-                {
-                    b.Navigation("AspNetUserRoles");
-                });
-
             modelBuilder.Entity("OneApplyDataAccessLayer.Entities.User", b =>
                 {
                     b.Navigation("Applies");
-
-                    b.Navigation("AspNetRoles");
-
-                    b.Navigation("AspNetUserRoles");
 
                     b.Navigation("Certificates");
 
