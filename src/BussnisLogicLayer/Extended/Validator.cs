@@ -1,6 +1,4 @@
-﻿
-
-using OneApplyDataAccessLayer.Entities;
+﻿using OneApplyDataAccessLayer.Entities;
 using OneApplyDataAccessLayer.Entities.Resumes;
 
 namespace BussnisLogicLayer.Extended;
@@ -28,4 +26,5 @@ public static  class Validator
     public static bool IsExistCertificate(this Certificate certificate, IEnumerable<Certificate> certificates)
         => certificates.Any(c => c.Name == certificate.Name
                              && c.Id != certificate.Id);
+
 }

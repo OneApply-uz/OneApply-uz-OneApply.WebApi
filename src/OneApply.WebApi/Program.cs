@@ -37,7 +37,10 @@ builder.Services.AddTransient<ILinkInterface, LinkRepository>();
 builder.Services.AddTransient<IUserInterface,  UserRepository>();
 builder.Services.AddTransient<IUserService,  UserService>();
 builder.Services.AddTransient<ICertificateService, CertificateService>();
-builder.Services.AddTransient<IWorkExperienceInterface, WorkExparinceRepository>(); // Corrected spelling
+builder.Services.AddTransient<IWorkExperienceInterface, WorkExparinceRepository>();
+builder.Services.AddTransient<IPdfService, PdfService>();// Corrected spelling
+//Error 
+///builder.Services.AddTransient<IEducationInterface, EducationService>();
 
 // Add AutoMapper
 var mapperConfig = new MapperConfiguration(mc =>

@@ -11,7 +11,7 @@ namespace OneApplyDataAccessLayer.Entities.Resumes
         [Required, MinLength(3), MaxLength(555)]
         public string Url { get; set; } = string.Empty;
 
-        public User User { get; set; }
+        public User User { get; set; } = new();
 
         [ForeignKey(nameof(User)), Column("UserId")]
         public int UserId { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OneApplyDataAccessLayer.Entities;
 using OneApplyDataAccessLayer.Entities.Resumes;
 using OneApplyDataAccessLayer.Entities.Vacancies;
 
@@ -10,6 +11,7 @@ namespace OneApplyDataAccessLayer.Data
         {
 
         }
+        DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -74,6 +76,7 @@ namespace OneApplyDataAccessLayer.Data
                 .WithMany(u => u.Jobs)
                 .HasForeignKey(j => j.UserId);
 
+            modelBuilder.Entity<User>().HasKey(u => u.Id);
 
 
             base.OnModelCreating(modelBuilder);

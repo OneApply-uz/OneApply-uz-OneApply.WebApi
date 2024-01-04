@@ -14,4 +14,3 @@ public class Skill:BaseEntity
     public User User { get; set; }
 
 }
-

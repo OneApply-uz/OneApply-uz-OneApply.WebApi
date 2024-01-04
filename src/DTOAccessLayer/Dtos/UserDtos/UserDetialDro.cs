@@ -19,6 +19,5 @@ namespace DTOAccessLayer.Dtos.UserDtos
         public ICollection<ProjectDto> ProjectDtos { get; set; } = new List<ProjectDto>();
         public ICollection<SkillDto> SkillDtos { get; set; } = new List<SkillDto>();
         public ICollection<WorkExperienceDto> WorkExperienceDtos { get; set; } = new List<WorkExperienceDto>();
-
     }
 }
