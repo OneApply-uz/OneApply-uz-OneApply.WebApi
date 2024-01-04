@@ -1,5 +1,4 @@
-﻿
-using OneApplyDataAccessLayer.Entities.Enums;
+﻿using OneApplyDataAccessLayer.Entities.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace DTOAccessLayer.Dtos.EducationDtos;
