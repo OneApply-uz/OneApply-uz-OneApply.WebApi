@@ -27,4 +27,10 @@ public static  class Validator
         => certificates.Any(c => c.Name == certificate.Name
                              && c.Id != certificate.Id);
 
+    public static bool IsValidWorkExperience(this WorkExperience workExperience)
+           => workExperience != null
+              && !string.IsNullOrEmpty(workExperience.CompanyName);
+
+    public static bool IsExistWorkExperience(this WorkExperience workExperience, IEnumerable<WorkExperience> workExperiences)
+        => workExperiences.Any(w => w.CompanyName == workExperience.CompanyName);
 }
